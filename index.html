@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clinoble Innovations Private Limited — Diagnostic software for where diagnostics don't reach</title>
+<meta name="description" content="Clinoble Innovations Private Limited (CIN U72200TS2026PTC219346) builds AI-enabled screening and care-linkage software for low-resource health systems. Hyderabad, Telangana, India.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#08181F;
+    --slate:#12313E;
+    --line:#D6E0E4;
+    --paper:#FBFCFC;
+    --mute:#5C7480;
+    --signal:#00A98F;
+    --signal-dim:#E3F5F1;
+    --amber:#D97A2B;
+    --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+    --mono:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--sans);
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(251,252,252,.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .bar{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .mark{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink)}
+  .glyph{width:26px;height:26px;flex:0 0 26px}
+  .wordmark{font-weight:700;font-size:19px;letter-spacing:-.02em}
+  .wordmark span{color:var(--mute);font-weight:500}
+  nav{display:flex;gap:30px}
+  nav a{
+    color:var(--mute);text-decoration:none;font-size:14px;font-weight:500;
+    transition:color .15s;
+  }
+  nav a:hover,nav a:focus-visible{color:var(--ink)}
+  @media(max-width:720px){nav{display:none}}
+
+  /* ---------- hero ---------- */
+  .hero{padding:88px 0 72px;border-bottom:1px solid var(--line)}
+  .eyebrow{
+    font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--signal);margin-bottom:22px;
+  }
+  h1{
+    font-size:clamp(31px,4.6vw,52px);
+    line-height:1.12;letter-spacing:-.03em;font-weight:700;
+    max-width:15ch;margin-bottom:24px;
+  }
+  h1 em{font-style:normal;color:var(--signal)}
+  .lede{font-size:18px;color:var(--slate);max-width:56ch;margin-bottom:34px}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+  @media(max-width:860px){.hero-grid{grid-template-columns:1fr;gap:40px}}
+
+  /* signature: the ROC curve — the actual instrument of this company's world */
+  .roc{width:100%;height:auto;max-width:340px}
+  .roc-frame{
+    border:1px solid var(--line);border-radius:3px;
+    background:#fff;padding:22px 22px 16px;
+  }
+  .roc-cap{
+    font-family:var(--mono);font-size:10.5px;color:var(--mute);
+    margin-top:12px;letter-spacing:.03em;line-height:1.5;
+  }
+  .curve{
+    stroke:var(--signal);stroke-width:2.2;fill:none;
+    stroke-linecap:round;
+    stroke-dasharray:260;stroke-dashoffset:260;
+    animation:draw 1.9s .35s cubic-bezier(.4,0,.2,1) forwards;
+  }
+  @keyframes draw{to{stroke-dashoffset:0}}
+  .thresh{
+    stroke:var(--amber);stroke-width:1.4;stroke-dasharray:3 3;
+    opacity:0;animation:fade 0.7s 1.9s forwards;
+  }
+  .dot{opacity:0;animation:fade .5s 2.2s forwards}
+  @keyframes fade{to{opacity:1}}
+  @media(prefers-reduced-motion:reduce){
+    .curve{stroke-dashoffset:0;animation:none}
+    .thresh,.dot{opacity:1;animation:none}
+  }
+
+  /* ---------- sections ---------- */
+  section{padding:76px 0;border-bottom:1px solid var(--line)}
+  .sec-head{margin-bottom:44px;max-width:60ch}
+  h2{font-size:29px;letter-spacing:-.025em;font-weight:700;margin-bottom:12px}
+  .sec-head p{color:var(--mute);font-size:16.5px}
+
+  /* ---------- platforms ---------- */
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  @media(max-width:760px){.grid{grid-template-columns:1fr}}
+  .card{background:#fff;padding:28px 26px;display:flex;flex-direction:column}
+  .card-top{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:9px}
+  .card h3{font-size:17.5px;font-weight:700;letter-spacing:-.01em}
+  .status{
+    font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+    padding:3px 7px;border-radius:2px;white-space:nowrap;
+  }
+  .live{background:var(--signal-dim);color:#00705F}
+  .dev{background:#F0F2F3;color:var(--mute)}
+  .card p{font-size:14.5px;color:var(--slate);flex:1;margin-bottom:14px}
+  .meta{font-family:var(--mono);font-size:11.5px;color:var(--mute);letter-spacing:.02em}
+  .meta a{color:var(--signal);text-decoration:none}
+  .meta a:hover{text-decoration:underline}
+
+  /* ---------- company / statutory ---------- */
+  #company{background:var(--ink);border-bottom:none;color:#fff}
+  #company h2{color:#fff}
+  #company .sec-head p{color:#8FA6B0}
+  .facts{
+    display:grid;grid-template-columns:repeat(2,1fr);
+    gap:1px;background:#1E3A46;border:1px solid #1E3A46;
+  }
+  @media(max-width:700px){.facts{grid-template-columns:1fr}}
+  .fact{background:var(--ink);padding:22px 24px}
+  .fact dt{
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;
+    text-transform:uppercase;color:#6E8A96;margin-bottom:7px;
+  }
+  .fact dd{font-size:15.5px;color:#fff;font-weight:500;line-height:1.5}
+  .fact dd.code{font-family:var(--mono);font-size:15px;letter-spacing:.01em;color:var(--signal)}
+
+  /* ---------- contact ---------- */
+  #contact{background:var(--ink);color:#fff;padding-top:0}
+  .cbox{
+    border-top:1px solid #1E3A46;padding-top:52px;
+    display:flex;justify-content:space-between;align-items:flex-end;gap:36px;flex-wrap:wrap;
+  }
+  .cbox h2{margin-bottom:14px}
+  .cbox a{color:var(--signal);text-decoration:none;font-size:16px}
+  .cbox a:hover{text-decoration:underline}
+  .clines{font-size:16px;color:#C3D3D9;line-height:2}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--ink);color:#5F7A87;padding:34px 0 46px;font-size:12.5px;line-height:1.75}
+  .fnote{border-top:1px solid #1E3A46;padding-top:26px;max-width:80ch}
+  .fnote strong{color:#8FA6B0;font-weight:600}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="mark" href="#top">
+      <svg class="glyph" viewBox="0 0 26 26" fill="none" aria-hidden="true">
+        <rect x="1" y="1" width="24" height="24" rx="3" stroke="#08181F" stroke-width="1.6"/>
+        <path d="M5.5 18.5C8 18.5 8.5 7.5 13 7.5C17.5 7.5 18 18.5 20.5 18.5" stroke="#00A98F" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <span class="wordmark">Clinoble<span> Innovations</span></span>
+    </a>
+    <nav>
+      <a href="#platforms">Platforms</a>
+      <a href="#company">Company</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Hyderabad, Telangana · India</div>
+        <h1>Diagnostic software for where diagnostics <em>don't reach</em>.</h1>
+        <p class="lede">
+          The tools exist. They just don't arrive. Clinoble builds AI-enabled screening
+          and care-linkage software for the sub-centre, the primary health centre, and
+          the rural clinic — the places where a machine, a specialist, or a laboratory
+          was never going to arrive.
+        </p>
+        <p class="lede" style="font-size:16px;color:var(--mute);margin-bottom:0">
+          Founded and led by a public health physician. Built for the health system that
+          actually exists, not the one in the brochure.
+        </p>
+      </div>
+
+      <div class="roc-frame">
+        <svg class="roc" viewBox="0 0 200 175" role="img" aria-label="Receiver operating characteristic curve with an operating threshold marked">
+          <line x1="26" y1="140" x2="182" y2="140" stroke="#D6E0E4" stroke-width="1"/>
+          <line x1="26" y1="140" x2="26" y2="14" stroke="#D6E0E4" stroke-width="1"/>
+          <line x1="26" y1="140" x2="182" y2="14" stroke="#E6ECEE" stroke-width="1" stroke-dasharray="3 3"/>
+          <path class="curve" d="M26 140 C 40 72, 62 34, 104 26 C 140 20, 168 18, 182 14"/>
+          <line class="thresh" x1="78" y1="140" x2="78" y2="38"/>
+          <circle class="dot" cx="78" cy="38" r="4" fill="#D97A2B"/>
+          <text x="104" y="160" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="#5C7480" text-anchor="middle">1 − specificity</text>
+          <text x="13" y="80" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="#5C7480" text-anchor="middle" transform="rotate(-90 13 80)">sensitivity</text>
+        </svg>
+        <div class="roc-cap">
+          A screening tool is only as good as the threshold you deploy it at —
+          and the cascade you attach it to.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="platforms">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Platforms</h2>
+        <p>Deployed software, not slideware. Each platform is bilingual, offline-capable where it needs to be, and designed to run on the hardware a frontline health worker already carries.</p>
+      </div>
+
+      <div class="grid">
+
+        <article class="card">
+          <div class="card-top">
+            <h3>TBFirst</h3>
+            <span class="status live">Live</span>
+          </div>
+          <p>
+            AI-enabled tuberculosis screening and care-linkage. Symptom risk scoring,
+            cough acoustic analysis, and explainable chest-radiograph interpretation —
+            then referral, treatment support, and follow-up tracking, so a positive
+            screen actually becomes a treated patient.
+          </p>
+          <div class="meta">English / తెలుగు · <a href="https://tbfirst.com" rel="noopener">tbfirst.com</a></div>
+        </article>
+
+        <article class="card">
+          <div class="card-top">
+            <h3>TeleVaidyam</h3>
+            <span class="status live">Pilot deployment</span>
+          </div>
+          <p>
+            Rural teleconsultation built for the last mile. Structured AI intake,
+            a 257-molecule formulary, prescriptions explained aloud in the patient's
+            own language, ASHA-assisted booking, and referral into the primary health
+            centre when it matters.
+          </p>
+          <div class="meta">English / తెలుగు · Teleconsultation</div>
+        </article>
+
+        <article class="card">
+          <div class="card-top">
+            <h3>CardioPulmo</h3>
+            <span class="status dev">Research validation</span>
+          </div>
+          <p>
+            Cardiopulmonary screening from signals a clinic already produces —
+            digital auscultation and chest radiography. Grad-CAM explainability
+            throughout, so every output can be audited by the clinician who has
+            to act on it.
+          </p>
+          <div class="meta">Internal validation · Not for diagnostic use</div>
+        </article>
+
+        <article class="card">
+          <div class="card-top">
+            <h3>NETHRA</h3>
+            <span class="status live">Live</span>
+          </div>
+          <p>
+            District-level public health surveillance across all 33 districts of
+            Telangana. Mapping, trend detection, and analytical tooling for the
+            people who have to make the call.
+          </p>
+          <div class="meta">Public health surveillance · Telangana</div>
+        </article>
+
+        <article class="card">
+          <div class="card-top">
+            <h3>Decades</h3>
+            <span class="status live">Google Play</span>
+          </div>
+          <p>
+            Biological age and healthspan assessment. Validated phenotypic-age
+            algorithms and functional measures, translated into something a person
+            can actually act on.
+          </p>
+          <div class="meta">Android · Preventive health</div>
+        </article>
+
+        <article class="card">
+          <div class="card-top">
+            <h3>PAUSE</h3>
+            <span class="status live">Google Play</span>
+          </div>
+          <p>
+            Digital wellbeing assessment built on published, validated psychometric
+            instruments rather than invented scales. Screening, not diagnosis —
+            and it says so.
+          </p>
+          <div class="meta">Android · Behavioural health</div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="company">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Company</h2>
+        <p>Clinoble Innovations Private Limited is incorporated under the Companies Act, 2013, with the Registrar of Companies, Hyderabad.</p>
+      </div>
+
+      <dl class="facts">
+        <div class="fact">
+          <dt>Registered name</dt>
+          <dd>Clinoble Innovations Private Limited</dd>
+        </div>
+        <div class="fact">
+          <dt>Corporate Identity Number (CIN)</dt>
+          <dd class="code">U72200TS2026PTC219346</dd>
+        </div>
+        <div class="fact">
+          <dt>Registrar of Companies</dt>
+          <dd>RoC Hyderabad, Telangana</dd>
+        </div>
+        <div class="fact">
+          <dt>Date of incorporation</dt>
+          <dd>14 July 2026</dd>
+        </div>
+        <div class="fact">
+          <dt>Registered office</dt>
+          <dd>H.No. 13-100, Goutham Nagar, Meerpet,<br>Saroornagar, Hyderabad,<br>Telangana &ndash; 500097, India</dd>
+        </div>
+        <div class="fact">
+          <dt>Directors</dt>
+          <dd>Dr. Jaideep Rao M., MBBS, MD (Community Medicine)<br>Ms. Lalitha Matari</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="cbox">
+        <div>
+          <h2>Contact</h2>
+          <div class="clines">
+            <a href="mailto:info@clinoble.com">info@clinoble.com</a><br>
+            <a href="tel:+919948640590">+91 99486 40590</a>
+          </div>
+        </div>
+        <div class="clines" style="text-align:right">
+          Clinoble Innovations Private Limited<br>
+          Hyderabad, Telangana, India
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fnote">
+      <strong>Regulatory notice.</strong> The platforms described on this page are screening
+      and triage tools intended to support, not replace, clinical judgement. They are
+      currently in research and validation use. No product described here is registered
+      with the Central Drugs Standard Control Organisation (CDSCO) as an approved
+      diagnostic device, and none should be used as the sole basis for a diagnosis or
+      a treatment decision. Confirmatory testing follows the applicable national
+      programme algorithm in every case.
+      <br><br>
+      &copy; 2026 Clinoble Innovations Private Limited · CIN U72200TS2026PTC219346 · Hyderabad, India
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
