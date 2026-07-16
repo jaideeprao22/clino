@@ -146,6 +146,8 @@
   .cbox a{color:var(--signal);text-decoration:none;font-size:16px}
   .cbox a:hover{text-decoration:underline}
   .clines{font-size:16px;color:#C3D3D9;line-height:2}
+  .reveal{background:none;border:0;padding:0;margin:0;font:inherit;font-size:16px;color:var(--signal);cursor:pointer;border-bottom:1px dashed rgba(0,169,143,.55)}
+  .reveal:hover,.reveal:focus-visible{border-bottom-style:solid}
 
   /* ---------- footer ---------- */
   footer{background:var(--ink);color:#5F7A87;padding:34px 0 46px;font-size:12.5px;line-height:1.75}
@@ -325,14 +327,10 @@
           <dd>RoC Hyderabad, Telangana</dd>
         </div>
         <div class="fact">
-          <dt>Date of incorporation</dt>
-          <dd>14 July 2026</dd>
-        </div>
-        <div class="fact">
           <dt>Registered office</dt>
           <dd>H.No. 13-100, Goutham Nagar, Meerpet,<br>Saroornagar, Hyderabad,<br>Telangana &ndash; 500097, India</dd>
         </div>
-        <div class="fact">
+        <div class="fact" style="grid-column:1 / -1">
           <dt>Directors</dt>
           <dd>Dr. Jaideep Rao M., MBBS, MD (Community Medicine)<br></dd>
         </div>
@@ -345,9 +343,9 @@
       <div class="cbox">
         <div>
           <h2>Contact</h2>
-          <div class="clines">
-            <a href="mailto:info@clinoble.com">info@clinoble.com</a><br>
-            <a href="tel:+919948640590">+91 99486 40590</a>
+          <div class="clines" id="creveal">
+            <button type="button" class="reveal" id="showEmail">Show email &darr;</button><br>
+            <button type="button" class="reveal" id="showPhone">Show phone &darr;</button>
           </div>
         </div>
         <div class="clines" style="text-align:right">
@@ -376,5 +374,28 @@
   </div>
 </footer>
 
+<script>
+/* Contact details are stored split so the address and full phone number never
+   appear as harvestable plaintext anywhere in the page source. They are
+   assembled only when a human clicks a reveal button. */
+(function(){
+  var e=['info','clinoble','com'];          // user, domain, tld
+  var p=['+91','99486','40590'];            // phone in pieces
+  function swap(btnId, href, text){
+    var b=document.getElementById(btnId); if(!b) return;
+    var a=document.createElement('a');
+    a.href=href; a.textContent=text;
+    b.parentNode.replaceChild(a,b);
+  }
+  var em=document.getElementById('showEmail');
+  if(em) em.addEventListener('click',function(){
+    swap('showEmail','mailto:'+e[0]+'@'+e[1]+'.'+e[2], e[0]+' (at) '+e[1]+'.'+e[2]);
+  });
+  var ph=document.getElementById('showPhone');
+  if(ph) ph.addEventListener('click',function(){
+    swap('showPhone','tel:+91'+p[1]+p[2], p.join(' '));
+  });
+})();
+</script>
 </body>
 </html>
